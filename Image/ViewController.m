@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ResetSizeImage.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImage * image = [UIImage imageNamed:@"before.jpg"];
+    
+    
+    NSData * data =  [[ResetSizeImage alloc]resetSizeOfImageDataMethodTwo:image maxSize:80];
+    
+
+    UIImage * saveImage  = [UIImage  imageWithData:data];
+    
+    UIImageWriteToSavedPhotosAlbum(saveImage, nil, nil, nil);
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
